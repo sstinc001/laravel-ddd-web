@@ -1,0 +1,63 @@
+import React, { useState } from 'react'
+import reactLogo from '../assets/react.svg'
+import viteLogo from '/vite.svg'
+import '../App.css'
+import {Link} from "react-router-dom"
+import {Button} from "@mui/material";
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+      <>
+        <div>
+          <a href="https://vitejs.dev" target="_blank">
+            <img src={viteLogo} className="logo" alt="Vite logo" />
+          </a>
+          <a href="https://react.dev" target="_blank">
+            <img src={reactLogo} className="logo react" alt="React logo" />
+          </a>
+        </div>
+        <h1>Vite + React ({import.meta.env.MODE})</h1>
+        <h2>home</h2>
+        <div>
+          <Button
+              variant="outlined"
+              color="primary"
+              component={Link}
+              to="/about"
+          >
+            Aboutへ遷移
+          </Button>
+          <Button
+              variant="outlined"
+              color="primary"
+              component={Link}
+              to="/regist"
+          >
+            Registへ遷移
+          </Button>
+          <Button
+              variant="outlined"
+              color="primary"
+              component={Link}
+              to="/auth"
+          >
+            Authへ遷移
+          </Button>
+        </div>
+        <div className="card">
+          <button onClick={() => setCount((count) => count + 1)}>
+            count is {count}
+          </button>
+          <p>
+            Edit <code>src/App.tsx</code> and save to test HMR
+          </p>
+        </div>
+        <p className="read-the-docs">
+          Click on the Vite and React logos to learn more
+        </p>
+      </>
+  )
+}
+export default App
