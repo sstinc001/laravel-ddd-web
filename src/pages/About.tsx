@@ -1,7 +1,5 @@
 import {Link} from "react-router-dom"
 import {Button} from "@mui/material";
-import React from "react";
-// import { Box, Button, Container, Grid, TextField } from '@mui/material'
 
 function About() {
   return (
