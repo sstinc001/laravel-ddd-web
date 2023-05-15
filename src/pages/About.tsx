@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom"
 import {Button} from "@mui/material";
 
-function About() {
+const About = () => {
   return (
       <>
         <div>

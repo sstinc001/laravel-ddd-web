@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react"
 import { auth } from '../services/firebase'
 import { signInWithEmailAndPassword } from 'firebase/auth'
+import { FirebaseError } from '@firebase/util'
 import { useNavigate, Link } from "react-router-dom"
 import { Box, Button, Container, Grid, TextField } from '@mui/material'
 
@@ -17,17 +18,19 @@ const Auth: React.FC = () => {
    * @param event
    * @constructor
    */
-  const Auth = (event: any) => {
+  const Auth = async (event: any) => {
     event.preventDefault()
-    signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          console.log(userCredential)
-          navigate("/about")// 登録成功後のリダイレクトページを設定してください。
-        })
-        .catch((error) => {
-          alert(error.message)
-          console.error(error)
-        })
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password)
+      console.log(userCredential)
+      navigate("/about")
+    } catch (e) {
+      console.log(e)
+      // alert(e.message)
+      if (e instanceof FirebaseError) {
+        console.log(e)
+      }
+    }
   }
 
   const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {

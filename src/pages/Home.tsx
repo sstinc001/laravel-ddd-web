@@ -5,7 +5,7 @@ import '../App.css'
 import {Link} from "react-router-dom"
 import {Button} from "@mui/material";
 
-function App() {
+const Home = () => {
   const [count, setCount] = useState(0)
 
   return (
@@ -60,4 +60,5 @@ function App() {
       </>
   )
 }
-export default App
+
+export default Home
